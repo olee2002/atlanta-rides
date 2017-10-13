@@ -1,0 +1,26 @@
+{
+  "name": "atlanta-rides",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pittsblake/atlanta-rides.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pittsblake/atlanta-rides/issues"
+  },
+  "homepage": "https://github.com/pittsblake/atlanta-rides#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.1"
+  }
+}
