@@ -16,10 +16,6 @@ const BikeSchema = mongoose.Schema({
         type: Number,
         default: Date.now
     },
-    use: {
-        type: String,
-        default: "e.g.Mountain Bike"
-    },
     img: {
         type: String,
         default: "Enter url"
@@ -40,12 +36,12 @@ const RideSchema = mongoose.Schema({
         required: true
     },
     time: {
-        type: String,
+        type: Number,
         required: true,
     },
     difficulty: {
         type: String,
-        required: true,
+        required: false,
         default: 'e.g: beginner'
     },
     rating: {
@@ -66,8 +62,8 @@ const UserSchema = mongoose.Schema({
     bio: {
         type: String
     },
-    rides: [RideSchema],
-    bikes: [BikeSchema]
+    ride: [RideSchema],
+    bike: [BikeSchema]
 })
 
 const BikeModel = mongoose.model('Bike', BikeSchema)
