@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class HomePage extends Component {
     render() {
         return (
             <div>
                 <h1>Atlanta Rides</h1> 
-                <a href="">Users</a>  
+                <Link to="/users">Users</Link>  
             </div>
         );
     }

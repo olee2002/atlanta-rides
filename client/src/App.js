@@ -7,6 +7,9 @@ import { BrowserRouter as Router , Switch, Route } from 'react-router-dom'
 
 //Importing components
 import HomePage from './components/home/HomePage'
+import UserPage from './components/user/UserPage'
+import RidePage from './components/ride/RidePage'
+import BikePage from './components/bike/BikePage'
 
 
 
@@ -19,8 +22,11 @@ class App extends Component {
           {/* Anything outside of Switch is global and available in every view */}
           {/* This is where I can add a NavBar or footer, so that it will be shown on every page */}
           <Switch>
-            
+
             <Route exact path='/' component={HomePage} />
+            <Route exact path='/users' component={UserPage} />
+            <Route exact path='/users/:userId/rides' component={RidePage} />
+            <Route exact path='/users/:userId/bikes' />
         
           </Switch>
         </div>
