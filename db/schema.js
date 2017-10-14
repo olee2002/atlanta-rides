@@ -14,49 +14,40 @@ const BikeSchema = mongoose.Schema({
     },
     year: {
         type: Number,
-        default: Date.now
     },
     img: {
         type: String,
-        default: "Enter url"
+        
     }
 })
 
 const RideSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        
     },
     location: {
         type: String,
-        required: true,
     },
     distance: {
         type: Number,
-        required: true
     },
     time: {
         type: Number,
-        required: true,
     },
     difficulty: {
         type: String,
-        required: false,
-        default: 'e.g: beginner'
     },
     rating: {
         type: Number,
-        required: true,
-        default: 'e.g: 1-5'
     }
 })
 
 const UserSchema = mongoose.Schema({
     name: {
-        type: Number,
-        required: true,
+        type: String,
     },
-    image: {
+    img: {
         type: String
     },
     bio: {
@@ -71,7 +62,5 @@ const RideModel = mongoose.model('Ride', RideSchema)
 const UserModel = mongoose.model('User', UserSchema)
 
 module.exports = {
-    BikeModel: BikeModel,
-    RideModel: RideModel,
-    UserModel: UserModel
+    BikeModel, RideModel, UserModel 
 }
