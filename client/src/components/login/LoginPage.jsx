@@ -11,7 +11,7 @@ class LoginPage extends Component {
     }
 
     // Call the getAllUsers method as soon as the component is created
-    componentWillMount () {
+    componentWillMount() {
         this.getAllUsers()
     }
 
@@ -19,7 +19,7 @@ class LoginPage extends Component {
     getAllUsers = async () => {
         try {
             const res = await axios.get('/api/users')
-            this.setState({users: res.data})
+            this.setState({ users: res.data })
             console.log('test try')
         } catch (err) {
             console.log(err)
@@ -29,13 +29,18 @@ class LoginPage extends Component {
     render() {
         return (
             <div>
-                <Link to ={'/'}> Home </Link>
+                <Link to={'/'}> Home </Link>
                 <SignUpForm />
-                
+
                 <h1>Select a User</h1>
-                
+
                 {this.state.users.map(user => {
-                    return (<Link key={user._id} to={`/users/${user._id}`}>{user.name} </Link>)
+                    return (
+                        <div>
+                            <Link key={user._id} to={`/users/${user._id}`}>{user.name} </Link>
+                        </div>
+
+                    )
                 })}
 
             </div>

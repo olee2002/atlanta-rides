@@ -29,17 +29,16 @@ router.post('/', async (req, res) => {
     }
 })
 
-//UPDATE ROUTE
+//UPDATE ROUTE to update bio
 router.patch('/:id', async (req, res) => {
     try {
-        //Get the values to th updated bio
-        const updatedBio = req.body.bio
-        //Find the User
-        const user = await UserModel.findById(req.params.userId)
-        //Grab the bio from the user
-        const bio = user.bio.id(req.params.id)
-        //Update the bio with the values coming in from req.body
-        bio = updatedBio
+        //This is the payload being sent over
+        const updatedUser = req.body.user
+        //
+        const user = await UserModel.findById(req.params.id)
+        //
+        //
+        user.bio = updatedUser.bio
         //Save the user object
         const saved = await user.save()
         //Send the updated user
