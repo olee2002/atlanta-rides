@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import UserProfile from '../user/UserProfile'
+import SignUpForm from './SignUpForm'
 
-
-class UserPage extends Component {
+class LoginPage extends Component {
 
     state = {
         users: []
@@ -28,10 +29,12 @@ class UserPage extends Component {
     render() {
         return (
             <div>
+                <Link to ={'/'}> Home </Link>
+                <SignUpForm />
+                
                 <h1>Select a User</h1>
                 
                 {this.state.users.map(user => {
-                    console.log(user)
                     return (<Link key={user._id} to={`/users/${user._id}`}>{user.name} </Link>)
                 })}
 
@@ -40,4 +43,4 @@ class UserPage extends Component {
     }
 }
 
-export default UserPage;
+export default LoginPage;

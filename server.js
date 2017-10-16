@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const UsersController = require('./routes/UsersController')
 // Create a new app using express
 const app = express();

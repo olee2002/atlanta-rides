@@ -7,9 +7,10 @@ import { BrowserRouter as Router , Switch, Route } from 'react-router-dom'
 
 //Importing components
 import HomePage from './components/home/HomePage'
-import UserPage from './components/user/UserPage'
+import LoginPage from './components/login/LoginPage'
 import RidePage from './components/ride/RidePage'
-import BikePage from './components/bike/BikePage'
+//import BikePage from './components/bike/BikePage'
+import UserProfile from './components/user/UserProfile'
 
 
 
@@ -24,9 +25,10 @@ class App extends Component {
           <Switch>
 
             <Route exact path='/' component={HomePage} />
-            <Route exact path='/users' component={UserPage} />
+            <Route exact path='/users' component={LoginPage} />
             <Route exact path='/users/:userId/rides' component={RidePage} />
             <Route exact path='/users/:userId/bikes' />
+            <Route exact path='/users/:userId' component={UserProfile}/>
         
           </Switch>
         </div>
