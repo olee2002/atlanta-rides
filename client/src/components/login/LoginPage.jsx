@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import UserProfile from '../user/UserProfile'
 import SignUpForm from './SignUpForm'
 
 class LoginPage extends Component {

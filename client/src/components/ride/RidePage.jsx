@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import RideList from './RideList'
+import axios from 'axios'
 
 class RidePage extends Component {
     render() {
         return (
             <div>
-                <h1>Ride Page</h1>
+                <RideList />
             </div>
         );
     }

@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const UsersController = require('./routes/UsersController')
+const RideController = require('./routes/RideController')
 // Create a new app using express
 const app = express();
 
@@ -31,9 +32,7 @@ app.use(bodyParser.json());
 
 // Add Controllers after Middleware
 app.use('/api/users', UsersController)
-app.get('/', (req, res) => {
-    res.send('Hello world!')
-})
+app.use('/api/users/:id/ride', RideController)
 
 
 // Create a index route that renders your built React app

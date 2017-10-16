@@ -66,6 +66,7 @@ class UserProfile extends Component {
                     <h1>Bio</h1>
                     <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
                 </div>
+                <Link to={`/users/:userId/rides`}> Ride </Link>
             </div>
         )
     }
