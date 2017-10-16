@@ -6,6 +6,7 @@ const { UserModel, RideModel } = require('../db/schema')
 //Index Route
 router.get('/', async (req, res) => {
     try {
+        console.log('route hit')
         const user = await UserModel.findById(req.params.id)
         console.log(user)
         const ride = user.ride
