@@ -44,10 +44,11 @@ class RidePage extends Component {
     render() {
         return (
             <div>
-                <NewRideForm
-                    createNewRide={this.createNewRide}
-                />
-
+                <div>
+                    <NewRideForm
+                        createNewRide={this.createNewRide}
+                    />
+                </div>
                 {this.state.ride.map((rides, index) => {
                     return (
                         <div key={index}>
