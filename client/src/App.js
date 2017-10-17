@@ -26,7 +26,6 @@ class App extends Component {
 
             <Route exact path='/' component={HomePage} />
             <Route exact path='/users' component={LoginPage} />
-            <Route exact path='/users/:userId/bikes' component={BikePage} />
             <Route exact path='/users/:userId' component={UserProfile}/>
         
           </Switch>

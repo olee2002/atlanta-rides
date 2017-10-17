@@ -6,7 +6,6 @@ const { UserModel, RideModel } = require('../db/schema')
 //Index Route
 router.get('/', async (req, res) => {
     try {
-        console.log('route hit')
         const user = await UserModel.findById(req.params.id)
         const ride = user.ride
         res.json(ride)
@@ -34,9 +33,12 @@ router.post('/', async (req, res) => {
 
 router.delete('/:rideId', async (req, res) => {
     try{
+    console.log('route hit')
     const user = await UserModel.findById(req.params.id)
+    console.log(req.params.rideId)
     user.ride.id(req.params.rideId).remove()
     const saved = await user.save()
+    console.log(saved)
     res.json(saved)
     } catch (err) {
         res.send(err)

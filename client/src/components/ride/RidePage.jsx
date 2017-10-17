@@ -33,6 +33,13 @@ class RidePage extends Component {
         this.setState({ride: res.data.ride})
     }
 
+    deleteRide = async (rideId) => {
+        const { userId } = this.props
+        const res = await axios.delete(`/api/users/${userId}/ride/${rideId}`)
+        console.log(res.data)
+        this.setState({ride: res.data.ride})
+    }
+
 
     render() {
         return (
@@ -50,7 +57,7 @@ class RidePage extends Component {
                             <h5>Difficulty: {rides.difficulty}</h5>
                             <h5>Distance: {rides.distance}</h5>
                             <h5>My time: {rides.time} minutes</h5>
-                            <button>Delete</button>
+                            <button onClick={() => this.deleteRide(rides._id)}>Delete</button>
                         </div>
                     )
                 })}

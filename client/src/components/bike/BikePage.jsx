@@ -11,10 +11,11 @@ class BikePage extends Component {
         this.getBikeInfo()
     }
 
-    getBikeInfo = async () => {
+    getBikeInfo = async (bikeId) => {
         try{
             const { userId } = this.props
-            const res = await axios.get(`api/users/${userId}/bike`)
+            const res = await axios.get(`/api/users/${userId}/bike`)
+            console.log(res.data)
             this.setState({ bike: res.data })
         } catch (err) {
             console.log(err)
@@ -23,7 +24,15 @@ class BikePage extends Component {
     render() {
         return (
             <div>
-                <h1>Bike Page</h1>
+                {this.state.bike.map((bikes, index) => {
+                    return (
+                        <div key={index}>
+                            <h1>{bikes.brand}</h1>
+                            <h3>{bikes.model}</h3>
+                            <h4>{bikes.year}</h4>
+                        </div>
+                    )
+                })}
             </div>
         );
     }
