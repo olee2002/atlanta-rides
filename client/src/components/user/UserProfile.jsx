@@ -11,30 +11,13 @@ class UserProfile extends Component {
     state = {
         user: {},
         isRides: false,
-       // showBikes: false
     }
 
     componentWillMount() {
         this.getUserInfo()
     }
 
-    toggleShowRides = () => {
-        this.setState({
-            isRides: !this.state.isRides
-        })
-    }
-
-    // onClickRide = () => {
-    //     this.setState({
-    //         showRides: true,
-    //     });
-    // }
-
-    // onClickBike = () => {
-    //     this.setState({
-    //         showBikes: true,
-    //     })
-    // }
+    
 
     getUserInfo = async () => {
         try {
@@ -48,9 +31,12 @@ class UserProfile extends Component {
     }
 
     toggleIsRide = () => {
-        this.setState({ isRide: !this.state.isRide })
+        this.setState({ 
+            isRides: !this.state.isRides ,
+        
+        })
     }
-
+ 
 
     handleChange = (event) => {
         //console.log(event)
@@ -78,6 +64,12 @@ class UserProfile extends Component {
 
 
     render() {
+        if(this.state.isRides){
+            document.getElementsByClassName("toggle").innerHTML = 'Bikes';
+            
+        }
+
+        console.log(this.state.isRides)
         return (
             <div>
                 <Link to={'/'}> Home </Link>
@@ -89,11 +81,20 @@ class UserProfile extends Component {
                     <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
                 </div>
                 <div>
-                    <button onClick={this.toggleIsRide}>Rides</button>
+                    {this.state.isRides ?  <button  onClick={this.toggleIsRide} >Bikes</button> 
+
+                    :
+                     <button onClick={this.toggleIsRide} >Rides</button>
+                    }
+                    
+        
                 </div>
+                
                 {this.state.isRides ? <RidePage
                     userId={this.props.match.params.userId}
-                /> : <BikePage userId={this.props.match.params.userId}/>}
+                />                     
+
+                : <BikePage userId={this.props.match.params.userId}/>}
                 
 
             </div>
