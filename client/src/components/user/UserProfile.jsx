@@ -17,7 +17,7 @@ class UserProfile extends Component {
         this.getUserInfo()
     }
 
-    
+
 
     getUserInfo = async () => {
         try {
@@ -31,12 +31,12 @@ class UserProfile extends Component {
     }
 
     toggleIsRide = () => {
-        this.setState({ 
-            isRides: !this.state.isRides ,
-        
+        this.setState({
+            isRides: !this.state.isRides,
+
         })
     }
- 
+
 
     handleChange = (event) => {
         //console.log(event)
@@ -64,9 +64,9 @@ class UserProfile extends Component {
 
 
     render() {
-        if(this.state.isRides){
+        if (this.state.isRides) {
             document.getElementsByClassName("toggle").innerHTML = 'Bikes';
-            
+
         }
 
         console.log(this.state.isRides)
@@ -80,24 +80,21 @@ class UserProfile extends Component {
                     <h1>Bio</h1>
                     <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
                 </div>
+
                 <div>
-                    {this.state.isRides ?  <button  onClick={this.toggleIsRide} >Bikes</button> 
-
-                    :
-                     <button onClick={this.toggleIsRide} >Rides</button>
+                    {
+                        this.state.isRides ? <button onClick={this.toggleIsRide} >Bikes</button>
+                            :
+                            <button onClick={this.toggleIsRide} >Rides</button>
                     }
-                    
-        
                 </div>
-                
-                {this.state.isRides ? <RidePage
-                    userId={this.props.match.params.userId}
-                />                     
 
-                : <BikePage userId={this.props.match.params.userId}/>}
-                
+                {this.state.isRides ? <RidePage userId={this.props.match.params.userId} />
+                    :
+                    <BikePage userId={this.props.match.params.userId} />}
 
             </div>
+            
         )
     }
 }
