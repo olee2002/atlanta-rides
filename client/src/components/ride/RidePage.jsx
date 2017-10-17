@@ -50,6 +50,7 @@ class RidePage extends Component {
                             <h5>Difficulty: {rides.difficulty}</h5>
                             <h5>Distance: {rides.distance}</h5>
                             <h5>My time: {rides.time} minutes</h5>
+                            <button>Delete</button>
                         </div>
                     )
                 })}
