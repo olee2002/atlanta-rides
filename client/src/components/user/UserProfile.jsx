@@ -10,25 +10,31 @@ class UserProfile extends Component {
 
     state = {
         user: {},
-        showRides: false,
-        showBikes: false
+        isRides: false,
+       // showBikes: false
     }
 
     componentWillMount() {
         this.getUserInfo()
     }
 
-    onClickRide = () => {
+    toggleShowRides = () => {
         this.setState({
-            showRides: true,
-        });
-    }
-
-    onClickBike = () => {
-        this.setState({
-            showBikes: true,
+            isRides: !this.state.isRides
         })
     }
+
+    // onClickRide = () => {
+    //     this.setState({
+    //         showRides: true,
+    //     });
+    // }
+
+    // onClickBike = () => {
+    //     this.setState({
+    //         showBikes: true,
+    //     })
+    // }
 
     getUserInfo = async () => {
         try {
@@ -83,15 +89,12 @@ class UserProfile extends Component {
                     <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
                 </div>
                 <div>
-                    <button onClick={this.onClickRide}>Rides</button>
-                    <button onClick={this.onClickBike}>Bikes</button>
+                    <button onClick={this.toggleIsRide}>Rides</button>
                 </div>
-                {this.state.showRides ? <RidePage
+                {this.state.isRides ? <RidePage
                     userId={this.props.match.params.userId}
-                /> : null}
-                {this.state.showBikes ? <BikePage 
-                    userId={this.props.match.params.userId}
-                /> : null}
+                /> : <BikePage userId={this.props.match.params.userId}/>}
+                
 
             </div>
         )
