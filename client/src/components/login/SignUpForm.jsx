@@ -9,7 +9,7 @@ class SignUpForm extends Component {
             img: '',
             bio: ''
         },
-        redirectToLoginPage: false,
+        redirectToUserProfile: false,
         newUserId: ''
     }
 
@@ -35,12 +35,12 @@ class SignUpForm extends Component {
 
     //When post is complete we want to set the state to trigger the redirect
     //and add the newUser's id to the state so we can change the route
-    this.setState({redirectToLoginPage: true, newUserId: res.data_id})
+    this.setState({redirectToUserProfile: true, newUserId: res.data._id})
     }
 
     render() {
         //If post is successful
-        if (this.state.redirectToLoginPage) {
+        if (this.state.redirectToUserProfile) {
             return <Redirect to={`/users/${this.state.newUserId}`} />
         }
         

@@ -3,23 +3,31 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import RidePage from '../ride/RidePage'
+import BikePage from '../bike/BikePage'
 
 
 class UserProfile extends Component {
 
     state = {
         user: {},
-        showRides: false
-    } 
+        showRides: false,
+        showBikes: false
+    }
 
     componentWillMount() {
         this.getUserInfo()
     }
 
-    onClick = () => {
-        this.setState({ 
+    onClickRide = () => {
+        this.setState({
             showRides: true,
         });
+    }
+
+    onClickBike = () => {
+        this.setState({
+            showBikes: true,
+        })
     }
 
     getUserInfo = async () => {
@@ -74,12 +82,17 @@ class UserProfile extends Component {
                     <h1>Bio</h1>
                     <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
                 </div>
-                <button onClick={this.onClick}> 
-                    Rides 
-                </button>
-                {this.state.showRides ? <RidePage 
+                <div>
+                    <button onClick={this.onClickRide}>Rides</button>
+                    <button onClick={this.onClickBike}>Bikes</button>
+                </div>
+                {this.state.showRides ? <RidePage
                     userId={this.props.match.params.userId}
                 /> : null}
+                {this.state.showBikes ? <BikePage 
+                    userId={this.props.match.params.userId}
+                /> : null}
+
             </div>
         )
     }

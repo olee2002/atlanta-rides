@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import RideList from './RideList'
+//import RideList from './RideList'
 import axios from 'axios'
+import NewRideForm from './NewRideForm.jsx'
 
 class RidePage extends Component {
     state = {
@@ -13,7 +14,7 @@ class RidePage extends Component {
 
     getRideInfo = async () => {
         try {
-            
+
             const { userId } = this.props
             const res = await axios.get(`/api/users/${userId}/ride`)
             console.log(res)
@@ -27,6 +28,8 @@ class RidePage extends Component {
     render() {
         return (
             <div>
+                <button>Create New Ride</button>
+                <NewRideForm />
 
                 {this.state.ride.map((rides, index) => {
                     return (
