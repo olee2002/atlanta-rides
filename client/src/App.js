@@ -8,8 +8,6 @@ import { BrowserRouter as Router , Switch, Route } from 'react-router-dom'
 //Importing components
 import HomePage from './components/home/HomePage'
 import LoginPage from './components/login/LoginPage'
-import RidePage from './components/ride/RidePage'
-import BikePage from './components/bike/BikePage'
 import UserProfile from './components/user/UserProfile'
 
 

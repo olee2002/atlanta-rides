@@ -5,11 +5,9 @@ const BikeSchema = mongoose.Schema({
     brand: {
         type: String,
         default: 'Brand',
-        required: true
     },
     model: {
         type: String,
-        required: true,
         default: 'Model'
     },
     year: {

@@ -19,7 +19,7 @@ class LoginPage extends Component {
         try {
             const res = await axios.get('/api/users')
             this.setState({ users: res.data })
-            console.log('test try')
+            //console.log('test try')
         } catch (err) {
             console.log(err)
         }

@@ -30,23 +30,23 @@ class RidePage extends Component {
         const res = await axios.post(`/api/users/${userId}/ride`, {
             ride: newRide
         })
-        this.setState({ride: res.data.ride})
+        this.setState({ ride: res.data.ride })
     }
 
     deleteRide = async (rideId) => {
         const { userId } = this.props
         const res = await axios.delete(`/api/users/${userId}/ride/${rideId}`)
         console.log(res.data)
-        this.setState({ride: res.data.ride})
+        this.setState({ ride: res.data.ride })
     }
 
 
     render() {
         return (
             <div>
-                <NewRideForm 
-                createNewRide = {this.createNewRide}
-                 />
+                <NewRideForm
+                    createNewRide={this.createNewRide}
+                />
 
                 {this.state.ride.map((rides, index) => {
                     return (

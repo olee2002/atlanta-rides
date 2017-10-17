@@ -32,14 +32,14 @@ router.post('/', async (req, res) => {
 
 
 router.delete('/:rideId', async (req, res) => {
-    try{
-    console.log('route hit')
-    const user = await UserModel.findById(req.params.id)
-    console.log(req.params.rideId)
-    user.ride.id(req.params.rideId).remove()
-    const saved = await user.save()
-    console.log(saved)
-    res.json(saved)
+    try {
+        console.log('route hit')
+        const user = await UserModel.findById(req.params.id)
+        console.log(req.params.rideId)
+        user.ride.id(req.params.rideId).remove()
+        const saved = await user.save()
+        console.log(saved)
+        res.json(saved)
     } catch (err) {
         res.send(err)
     }
