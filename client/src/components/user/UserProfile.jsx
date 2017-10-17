@@ -47,7 +47,7 @@ class UserProfile extends Component {
 
 
     handleChange = (event) => {
-        console.log(event)
+        //console.log(event)
         //Grabs the input by name
         const attribute = event.target.name
         //Clone the user

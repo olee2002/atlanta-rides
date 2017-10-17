@@ -18,19 +18,14 @@ class NewRideForm extends Component {
     handleChange = (event) => {
         const attribute = event.target.name
         const updateRide = { ...this.state.newRide }
-        updateRide[attribute] = { ...this.state.newRide }
+        updateRide[attribute] =  event.target.value
 
         this.setState({ newRide: updateRide })
     }
 
     handleSubmit = async (event) => {
         event.preventDefault()
-
-        const res = await axios.post('/api/users', {
-            'user': this.state.newRide
-        })
-
-        this.setState({ newRideId: res.data_id })
+        this.props.createNewRide(this.state.newRide)
     }
 
     render() {
@@ -48,31 +43,34 @@ class NewRideForm extends Component {
                         <label htmlFor="location">Location</label>
                         <input
                             onChange={this.handleChange} name="location"
-                            type="text" />
+                            type="text" value={this.state.newRide.location}/>
                     </div>
                     <div>
                         <label htmlFor="rating">Rating</label>
                         <input
                             onChange={this.handleChange} name="rating"
-                            type="text" />
+                            type="text" value={this.state.newRide.rating}/>
                     </div>
                     <div>
                         <label htmlFor="difficulty">Difficulty</label>
                         <input
                             onChange={this.handleChange} name="difficulty"
-                            type="text" />
+                            type="text" value={this.state.newRide.difficulty}/>
                     </div>
                     <div>
                         <label htmlFor="distance">Distance</label>
                         <input
                             onChange={this.handleChange} name="distance"
-                            type="text" />
+                            type="text" value={this.state.newRide.distance}/>
                     </div>
                     <div>
                         <label htmlFor="time">Time</label>
                         <input
                             onChange={this.handleChange} name="time"
-                            type="text" />
+                            type="text" value={this.state.newRide.time}/>
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit"/>
                     </div>
                 </form>
             </div>
