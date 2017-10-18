@@ -151,7 +151,12 @@ class UserProfile extends Component {
                                 }}
                                 titleColor="grey"
                             />
-                            <BioBox onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
+                            <BioBox 
+                                onBlur={this.updateBio} 
+                                onChange={this.handleChange} 
+                                name="bio" 
+                                value={this.state.user.bio}
+                             />
                         </Card>
                     </div>
                 </ProfileContent>
