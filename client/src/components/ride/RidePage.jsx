@@ -16,6 +16,17 @@ const RideInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 70%;
+    padding: 5% 15%
+`;
+
+const RideForm = styled.div`
+    width: 30%;
+    padding: 5% 10% 5% 0%;
+`;
+const DeleteButton = styled.div`
+    display: flex;
+    justify-content: flex-end
 `;
 
 
@@ -62,32 +73,40 @@ class RidePage extends Component {
         return (
             <RideContainer>
 
-                {this.state.ride.map((rides, index) => {
-                    return (
-                        <Card>
-                            <RideInfo key={index}>
-                                <CardHeader
-                                    title={rides.name}
-                                    subtitle={rides.location}
-                                />
+                <RideInfo>
+                    {this.state.ride.map((rides, index) => {
+                        return (
 
-                                <h3>Location:{rides.location}</h3>
-                                <h3>Rating:{rides.rating} out of 5</h3>
-                                <h5>Difficulty: {rides.difficulty}</h5>
-                                <h5>Distance: {rides.distance}</h5>
-                                <h5>My time: {rides.time} minutes</h5>
-                            </RideInfo>
-                            <button onClick={() => this.deleteRide(rides._id)}>Delete</button>
+                            <Card>
+                                <DeleteButton>
+                                    <button onClick={() => this.deleteRide(rides._id)}>Delete</button>
+                                </DeleteButton>
+                                <br/>
+                                <div key={index}>
+                                    <CardHeader
+                                        title={rides.name}
+                                        titleStyle={{
+                                            'fontSize': '30px', 'fontWeight': 'bold'
+                                        }}
+                                        subtitle={rides.location}
+                                    />
+                                    <h3>Rating:{rides.rating} out of 5</h3>
+                                    <h5>Difficulty: {rides.difficulty}</h5>
+                                    <h5>Distance: {rides.distance}</h5>
+                                    <h5>My time: {rides.time} minutes</h5>
+                                </div>
+                            </Card>
 
-                        </Card>
-                    )
-                })}
+                        )
+                    })}
 
-                <div>
+                </RideInfo>
+
+                <RideForm>
                     <NewRideForm
                         createNewRide={this.createNewRide}
                     />
-                </div>
+                </RideForm>
 
             </RideContainer>
 
