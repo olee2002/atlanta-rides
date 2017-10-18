@@ -4,6 +4,10 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import RidePage from '../ride/RidePage'
 import BikePage from '../bike/BikePage'
+import styled from 'styled-components'
+import FlatButton from 'material-ui/FlatButton';
+import ActionHome from 'material-ui/svg-icons/action/home';
+import { red500, yellow500, blue500 } from 'material-ui/styles/colors';
 
 
 class UserProfile extends Component {
@@ -72,8 +76,18 @@ class UserProfile extends Component {
         console.log(this.state.isRides)
         return (
             <div>
-                <Link to={'/'}> Home </Link>
-                <Link to={'/users'}> Back to Users </Link>
+                <FlatButton 
+                    href="/"
+                    label="Home"
+                    primary={true}
+                    icon={<ActionHome />}
+                /> 
+                <FlatButton 
+                href={'/users'}
+                label="Back to Users"
+                primary={true}
+                
+                /> 
                 <h1>{this.state.user.name}'s Profile</h1>
                 <img src={this.state.user.img} alt="Profile Pic" />
                 <div>
