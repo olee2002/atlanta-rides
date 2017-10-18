@@ -9,6 +9,34 @@ import FlatButton from 'material-ui/FlatButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import { red500, yellow500, blue500 } from 'material-ui/styles/colors';
 
+const NavBar = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+`;
+
+const ProfileName = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 0px, 50px;
+`;
+
+const ProfileContent = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+`;
+
+const Image = styled.img`
+    border-radius: 15px;
+    height: 30vh;
+    width: 20vw;
+`;
+
+const RideBikeButton = styled.div`
+    display: flex;
+    justify-content: center;
+`;
 
 class UserProfile extends Component {
 
@@ -76,39 +104,47 @@ class UserProfile extends Component {
         console.log(this.state.isRides)
         return (
             <div>
-                <FlatButton 
-                    href="/"
-                    label="Home"
-                    primary={true}
-                    icon={<ActionHome />}
-                /> 
-                <FlatButton 
-                href={'/users'}
-                label="Back to Users"
-                primary={true}
-                
-                /> 
-                <h1>{this.state.user.name}'s Profile</h1>
-                <img src={this.state.user.img} alt="Profile Pic" />
-                <div>
-                    <h1>Bio</h1>
-                    <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
-                </div>
 
-                <div>
+                <NavBar>
+                    <FlatButton
+                        href="/"
+                        label="Home"
+                        primary={true}
+                        icon={<ActionHome />}
+                    />
+                    <FlatButton
+                        href={'/users'}
+                        label="Back to Users"
+                        primary={true}
+
+                    />
+                </NavBar>
+
+                <ProfileName>
+                    <h1>{this.state.user.name}'s Profile</h1>
+                </ProfileName>
+
+                <ProfileContent>
+                    <Image src={this.state.user.img} alt="Profile Pic" />
+                    <div>
+                        <h1>Bio</h1>
+                        <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
+                    </div>
+                </ProfileContent>
+                <RideBikeButton>
                     {
                         this.state.isRides ? <button onClick={this.toggleIsRide} >Bikes</button>
                             :
                             <button onClick={this.toggleIsRide} >Rides</button>
                     }
-                </div>
+                </RideBikeButton>
 
                 {this.state.isRides ? <RidePage userId={this.props.match.params.userId} />
                     :
                     <BikePage userId={this.props.match.params.userId} />}
 
             </div>
-            
+
         )
     }
 }

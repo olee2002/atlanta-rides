@@ -38,7 +38,7 @@ const RideSchema = mongoose.Schema({
     },
     rating: {
         type: Number,
-    }
+    },
 })
 
 const UserSchema = mongoose.Schema({
