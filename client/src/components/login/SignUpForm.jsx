@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Input = styled.input`
+    border: none;
+    border-bottom: thin solid white;
+    background-color: initial;
+`;
+
+const H1 = styled.h1`
+    border-bottom: thin solid black;
+
+`;
 
 class SignUpForm extends Component {
     state = {
@@ -12,6 +24,7 @@ class SignUpForm extends Component {
         redirectToUserProfile: false,
         newUserId: ''
     }
+    
 
     //Is called every time a user makes an input event
     handleChange = (event) => {
@@ -46,27 +59,23 @@ class SignUpForm extends Component {
         
         return (
             <div>
-                <h1>Sign-Up</h1>
+                <H1>Sign-Up</H1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label htmlFor="name">User Name</label>
-                        <input
+                        <label htmlFor="name">Name</label>
+                        <br/>
+                        <Input
                             onChange={this.handleChange} name="name"
                             type="text" value={this.state.newUser.name}
                         />
                     </div>
+                    <br/>
                     <div>
                         <label htmlFor="img">Image</label>
-                        <input 
+                        <br/>
+                        <Input 
                             onChange={this.handleChange} name="img"
                             type="text" value={this.state.newUser.img}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="bio">Bio</label>
-                        <input 
-                            onChange={this.handleChange} name="bio"
-                            type="text" value={this.state.newUser.bio}
                         />
                     </div>
                     <button>Sign up</button>

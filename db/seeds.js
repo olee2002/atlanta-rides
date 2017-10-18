@@ -18,7 +18,7 @@ const novarra = new BikeModel({
     brand: "Novarra",
     model: "Ponderosa",
     year: 2015,
-    img: ""
+    img: "https://i.imgur.com/MgOfGdFh.jpg"
 })
 
 const blake = new UserModel({

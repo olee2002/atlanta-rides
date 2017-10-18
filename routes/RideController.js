@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newRide = new RideModel(req.body.ride)
+        console.log(newRide)
 
         const user = await UserModel.findById(req.params.id)
 

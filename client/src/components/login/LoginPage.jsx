@@ -57,6 +57,7 @@ const Names = styled.div`
 const SignUpContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: rgba(89, 110, 130, 0.6);
     border-radius: 10px;
     width:  300px;

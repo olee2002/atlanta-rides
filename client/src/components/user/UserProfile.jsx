@@ -8,6 +8,8 @@ import styled from 'styled-components'
 import FlatButton from 'material-ui/FlatButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import { red500, yellow500, blue500 } from 'material-ui/styles/colors';
+import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
 const NavBar = styled.div`
     display: flex;
@@ -29,13 +31,22 @@ const ProfileContent = styled.div`
 
 const Image = styled.img`
     border-radius: 15px;
-    height: 30vh;
-    width: 20vw;
+    height: 33vh;
+    width: 25vw;
+    box-shadow: 1px 1px 5px black;
 `;
 
 const RideBikeButton = styled.div`
     display: flex;
     justify-content: center;
+`;
+
+const BioBox = styled.textarea`
+    display: inline-block;
+    width: 400px;
+    min-height: 200px;
+    border: none;
+    font-size: 15px
 `;
 
 class UserProfile extends Component {
@@ -123,19 +134,39 @@ class UserProfile extends Component {
                 <ProfileName>
                     <h1>{this.state.user.name}'s Profile</h1>
                 </ProfileName>
-
+                <br />
+                <br />
+                <br />
                 <ProfileContent>
                     <Image src={this.state.user.img} alt="Profile Pic" />
                     <div>
-                        <h1>Bio</h1>
-                        <textarea onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
+                        <Card
+                            zDepth={2}
+                        >
+                            <CardHeader 
+                                title="Bio"
+                                titleStyle={{
+                                    'fontSize': '30px',
+                                    'fontWeight': 'bold',
+                                }}
+                                titleColor="grey"
+                            />
+                            <BioBox onBlur={this.updateBio} onChange={this.handleChange} name="bio" value={this.state.user.bio} />
+                        </Card>
                     </div>
                 </ProfileContent>
+                <br />
                 <RideBikeButton>
                     {
-                        this.state.isRides ? <button onClick={this.toggleIsRide} >Bikes</button>
+                        this.state.isRides ? <RaisedButton
+                            onClick={this.toggleIsRide}
+                            label="Bikes"
+                        />
                             :
-                            <button onClick={this.toggleIsRide} >Rides</button>
+                            <RaisedButton
+                                onClick={this.toggleIsRide}
+                                label="Rides"
+                            />
                     }
                 </RideBikeButton>
 

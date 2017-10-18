@@ -4,6 +4,7 @@ import axios from 'axios'
 import NewRideForm from './NewRideForm.jsx'
 import styled from 'styled-components'
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 
 
 const RideContainer = styled.div`
@@ -17,16 +18,29 @@ const RideInfo = styled.div`
     flex-direction: column;
     justify-content: space-around;
     width: 70%;
-    padding: 5% 15%
+    padding: 5% 15% 5% 2%
+`;
+
+const CardContent = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 `;
 
 const RideForm = styled.div`
     width: 30%;
     padding: 5% 10% 5% 0%;
 `;
-const DeleteButton = styled.div`
+
+const Header = styled.div`
     display: flex;
-    justify-content: flex-end
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
+const H3 = styled.h3`
+    border-bottom: thin solid black;
 `;
 
 
@@ -76,31 +90,47 @@ class RidePage extends Component {
                 <RideInfo>
                     {this.state.ride.map((rides, index) => {
                         return (
-
-                            <Card>
-                                <DeleteButton>
-                                    <button onClick={() => this.deleteRide(rides._id)}>Delete</button>
-                                </DeleteButton>
-                                <br/>
-                                <div key={index}>
+                            <Card
+                                zDepth={4}
+                            >
+                                <Header>
                                     <CardHeader
                                         title={rides.name}
                                         titleStyle={{
-                                            'fontSize': '30px', 'fontWeight': 'bold'
+                                            'fontSize': '30px',
+                                            'fontWeight': 'bold'
                                         }}
                                         subtitle={rides.location}
                                     />
-                                    <h3>Rating:{rides.rating} out of 5</h3>
-                                    <h5>Difficulty: {rides.difficulty}</h5>
-                                    <h5>Distance: {rides.distance}</h5>
-                                    <h5>My time: {rides.time} minutes</h5>
-                                </div>
-                            </Card>
+                                    <div>
+                                        <RaisedButton
+                                            onClick={() => this.deleteRide(rides._id)}
+                                            label="Delete"
+                                            secondary={true}
+                                        />
+                                    </div>
+                                </Header>
 
+                                <CardContent key={index}>
+                                    <div>
+                                        <H3>Rating</H3>
+                                        <p>{rides.rating} out of 5</p>
+                                        <H3>Difficulty </H3>
+                                        <p>{rides.difficulty}</p>
+                                    </div>
+                                    <div>
+                                        <H3>Distance </H3>
+                                        <p>{rides.distance} miles</p>
+                                        <H3>My time </H3>
+                                        <p>{rides.time} minutes</p>
+                                    </div>
+                                </CardContent>
+
+                            </Card>
                         )
                     })}
-
                 </RideInfo>
+
 
                 <RideForm>
                     <NewRideForm
