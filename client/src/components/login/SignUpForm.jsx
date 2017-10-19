@@ -4,18 +4,17 @@ import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import FlatButton from 'material-ui/FlatButton';
 
-
 const Input = styled.input`
     border: none;
     border-bottom: thin solid white;
     background-color: initial;
-    font-size: 15px;
-    color: white
+    font-size: 20px
 `;
 
 const H1 = styled.h1`
     border-bottom: thin solid black;
-
+    display: flex;
+    justify-content: center;
 `;
 
 class SignUpForm extends Component {
@@ -65,32 +64,39 @@ class SignUpForm extends Component {
             <div>
                 <H1>Sign-Up</H1>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <br/>
-                        <Input
-                            placeholder="Name"
-                            onChange={this.handleChange} name="name"
-                            type="text" value={this.state.newUser.name}
-                        />
-                    </div>
+                <div>
                     <br/>
-                    <div>
-                        <br/>
-                        <Input 
-                            placeholder="Image e.g. image url"
-                            onChange={this.handleChange} name="img"
-                            type="text" value={this.state.newUser.img}
-                        />
-                    </div>
-                    <br/>
-
-                    <FlatButton 
-                        label="Submit"
+                    <Input
+                        placeholder="Name"
+                        onChange={this.handleChange} name="name"
+                        type="text" value={this.state.newUser.name}
                     />
-                </form>
+                </div>
+                <br/>
+                <div>
+                    <br/>
+                    <Input 
+                        placeholder="Image e.g. image url"
+                        onChange={this.handleChange} name="img"
+                        type="text" value={this.state.newUser.img}
+                    />
+                </div>
+                <br/>
+                
+                <FlatButton 
+                    label="Submit"
+                    type="submit"
+                    labelStyle={{
+                        "fontSize": "30x"
+                    }}
+                    hoverColor="white"
+                />
+                </form> 
             </div>
         );
     }
 }
 
 export default SignUpForm;
+
+
