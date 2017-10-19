@@ -39,8 +39,8 @@ padding: 5% 10% 5% 0%;
 
 const Image = styled.img`
     border-radius: 15px;
-    height: 33vh;
-    width: 25vw;
+    height: 40%;
+    width: 40%;
     box-shadow: 2px 2px 5px black,
 `;
 

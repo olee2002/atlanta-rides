@@ -11,6 +11,21 @@ import { red500, yellow500, blue500 } from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
+
+//Pulled background div from stack Overflow
+const Body = styled.div`
+    min-height: 100%;
+    min-width: 1024px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    /* Set up positioning */
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #333f4b;
+`;
+
 const NavBar = styled.div`
     display: flex;
     flex-direction: row;
@@ -47,6 +62,11 @@ const BioBox = styled.textarea`
     min-height: 200px;
     border: none;
     font-size: 15px
+`;
+
+const H1 = styled.h1`
+    color: white;
+    font-size: 5vw
 `;
 
 class UserProfile extends Component {
@@ -114,7 +134,7 @@ class UserProfile extends Component {
 
         console.log(this.state.isRides)
         return (
-            <div>
+            <Body>
 
                 <NavBar>
                     <FlatButton
@@ -132,7 +152,7 @@ class UserProfile extends Component {
                 </NavBar>
 
                 <ProfileName>
-                    <h1>{this.state.user.name}'s Profile</h1>
+                    <H1>{this.state.user.name}'s Profile</H1>
                 </ProfileName>
                 <br />
                 <br />
@@ -159,18 +179,21 @@ class UserProfile extends Component {
                              />
                         </Card>
                     </div>
+                    
                 </ProfileContent>
-                <br />
+                <br/>
                 <RideBikeButton>
                     {
                         this.state.isRides ? <RaisedButton
                             onClick={this.toggleIsRide}
                             label="Bikes"
+                            zDepth={4}
                         />
                             :
                             <RaisedButton
                                 onClick={this.toggleIsRide}
                                 label="Rides"
+                                zDepth={4}
                             />
                     }
                 </RideBikeButton>
@@ -179,7 +202,7 @@ class UserProfile extends Component {
                     :
                     <BikePage userId={this.props.match.params.userId} />}
 
-            </div>
+            </Body>
 
         )
     }

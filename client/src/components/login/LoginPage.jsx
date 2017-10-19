@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import { red500, yellow500, blue500 } from 'material-ui/styles/colors';
 
-
+//Pulled background div from stack Overflow
 const Body = styled.div`
     height: 100%;
     width: 100%;

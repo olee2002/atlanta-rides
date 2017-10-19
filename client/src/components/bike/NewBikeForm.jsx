@@ -6,6 +6,12 @@ const Input = styled.input`
     border: none;
     border-bottom: thin solid black;
     background-color: initial;
+    font-size: 15px
+`;
+
+const H1 = styled.h1`
+color: white;
+
 `;
 
 
@@ -35,7 +41,7 @@ class NewBikeForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                <h1>Add Bike</h1>
+                <H1>Add Bike</H1>
                     <div>
                         <Input 
                             onChange={this.handleChange} name="brand"
@@ -69,6 +75,7 @@ class NewBikeForm extends Component {
                             onChange={this.handleChange} name="img"
                             type="text" 
                             value={this.state.newBike.img}
+                            
                         />
                     </div>
                     <br/>

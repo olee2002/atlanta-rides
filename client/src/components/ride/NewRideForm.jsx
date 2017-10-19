@@ -7,6 +7,12 @@ const Input = styled.input`
 border: none;
 border-bottom: thin solid black;
 background-color: initial;
+font-size: 15px;
+`;
+
+const H1 = styled.h1`
+color: white;
+
 `;
 
 class NewRideForm extends Component {
@@ -39,7 +45,7 @@ class NewRideForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} >
-                <h1>Add Ride</h1>
+                <H1>Add Ride</H1>
                     <div>
                         <Input
                             placeholder="Name of route/trail"
