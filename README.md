@@ -6,6 +6,7 @@ This is an Atlanta Cyclist Social app where users can create a profile a post th
 
 # link to app
 https://github.com/pittsblake/atlanta-rides
+https://atlanta-rides.herokuapp.com/ 
 
 # link to Trello
 https://trello.com/b/D5ZNAWmU/atlanta-rides 
