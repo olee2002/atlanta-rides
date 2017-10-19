@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+import RaisedButton from 'material-ui/RaisedButton';
+
+const Input = styled.input`
+    border: none;
+    border-bottom: thin solid black;
+    background-color: initial;
+`;
 
 
 class NewBikeForm extends Component {
@@ -27,40 +35,49 @@ class NewBikeForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
+                <h1>Add Bike</h1>
                     <div>
-                        <label htmlFor="brand">Brand</label>
-                        <input 
+                        <Input 
                             onChange={this.handleChange} name="brand"
                             type="text" 
+                            placeholder="Brand"
                             value={this.state.newBike.brand}
                         />
                     </div>
+                    <br/>
                     <div>
-                        <label htmlFor="model">Model</label>
-                        <input 
+                        <Input 
+                            placeholder="Model"
                             onChange={this.handleChange} name="model"
                             type="text" 
                             value={this.state.newBike.model}
                         />
                     </div>
+                    <br/>
                     <div>
-                        <label htmlFor="year">Year</label>
-                        <input 
+                        <Input 
+                            placeholder="Year"
                             onChange={this.handleChange} name="year"
                             type="text" 
                             value={this.state.newBike.year}
                         />
                     </div>
+                    <br/>
                     <div>
-                        <label htmlFor="img">Image</label>
-                        <input 
+                        <Input 
+                            placeholder="image url"
                             onChange={this.handleChange} name="img"
                             type="text" 
                             value={this.state.newBike.img}
                         />
                     </div>
+                    <br/>
                     <div>
-                        <input type="submit" value="Submit"/>
+                        <RaisedButton 
+                            type="submit"
+                            label="Submit"
+                            primary={true}                       
+                        />
                     </div>
                 </form>
             </div>

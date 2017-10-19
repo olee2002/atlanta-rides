@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
+import FlatButton from 'material-ui/FlatButton';
+
 
 const Input = styled.input`
     border: none;
     border-bottom: thin solid white;
     background-color: initial;
+    font-size: 15px;
+    color: white
 `;
 
 const H1 = styled.h1`
@@ -62,23 +66,27 @@ class SignUpForm extends Component {
                 <H1>Sign-Up</H1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label htmlFor="name">Name</label>
                         <br/>
                         <Input
+                            placeholder="Name"
                             onChange={this.handleChange} name="name"
                             type="text" value={this.state.newUser.name}
                         />
                     </div>
                     <br/>
                     <div>
-                        <label htmlFor="img">Image</label>
                         <br/>
                         <Input 
+                            placeholder="Image e.g. image url"
                             onChange={this.handleChange} name="img"
                             type="text" value={this.state.newUser.img}
                         />
                     </div>
-                    <button>Sign up</button>
+                    <br/>
+
+                    <FlatButton 
+                        label="Submit"
+                    />
                 </form>
             </div>
         );

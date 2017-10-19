@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+import RaisedButton from 'material-ui/RaisedButton';
 
-//import { Redirect } from 'react-router-dom'
+
+const Input = styled.input`
+border: none;
+border-bottom: thin solid black;
+background-color: initial;
+`;
 
 class NewRideForm extends Component {
     state = {
@@ -18,7 +25,7 @@ class NewRideForm extends Component {
     handleChange = (event) => {
         const attribute = event.target.name
         const updateRide = { ...this.state.newRide }
-        updateRide[attribute] =  event.target.value
+        updateRide[attribute] = event.target.value
 
         this.setState({ newRide: updateRide })
     }
@@ -32,45 +39,61 @@ class NewRideForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} >
+                <h1>Add Ride</h1>
                     <div>
-                        <label htmlFor="name">Name of Ride</label>
-                        <input
+                        <Input
+                            placeholder="Name of route/trail"
                             onChange={this.handleChange} name="name"
-                            type="text" value={this.state.newRide.name}
+                            type="text"
+                            value={this.state.newRide.name}
                         />
                     </div>
+                    <br />
                     <div>
-                        <label htmlFor="location">Location</label>
-                        <input
+                        <Input
+                            placeholder="Location"
                             onChange={this.handleChange} name="location"
-                            type="text" value={this.state.newRide.location}/>
+                            type="text"
+                            value={this.state.newRide.location}
+                        />
                     </div>
+                    <br />
                     <div>
-                        <label htmlFor="rating">Rating</label>
-                        <input
+                        <Input
+                            placeholder="Rating e.g. 1-5"
                             onChange={this.handleChange} name="rating"
-                            type="text" value={this.state.newRide.rating}/>
+                            type="text" value={this.state.newRide.rating}
+
+                        />
                     </div>
+                    <br />
                     <div>
-                        <label htmlFor="difficulty">Difficulty</label>
-                        <input
+                        <Input
+                            placeholder="difficulty e.g. beginner"
                             onChange={this.handleChange} name="difficulty"
-                            type="text" value={this.state.newRide.difficulty}/>
+                            type="text" value={this.state.newRide.difficulty} />
                     </div>
+                    <br />
                     <div>
-                        <label htmlFor="distance">Distance</label>
-                        <input
+                        <Input
+                            placeholder="Distance in miles"
                             onChange={this.handleChange} name="distance"
-                            type="text" value={this.state.newRide.distance}/>
+                            type="text" value={this.state.newRide.distance} />
                     </div>
+                    <br />
                     <div>
-                        <label htmlFor="time">Time</label>
-                        <input
+                        <Input
+                            placeholder="Time in mins"
                             onChange={this.handleChange} name="time"
-                            type="text" value={this.state.newRide.time}/>
+                            type="text" value={this.state.newRide.time} />
                     </div>
+                    <br />
                     <div>
-                        <input type="submit" value="Submit"/>
+                        <RaisedButton 
+                            type="submit" 
+                            label="Submit" 
+                            primary={true}
+                        />
                     </div>
                 </form>
             </div>
